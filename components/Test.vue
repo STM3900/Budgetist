@@ -1,5 +1,5 @@
 <template>
-  <h1 class="display-3 mt-10">{{titre}} {{nom}} !</h1>
+  <h1 class="display-3 mt-16 mb-2">{{titre}} {{nom}} !</h1>
 </template>
 
 <script>

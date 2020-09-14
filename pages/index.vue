@@ -1,5 +1,5 @@
 <template>
-  <v-content>
+  <v-main>
     <Test v-bind:titre="letitre" v-bind:nom="nom"/>
     <v-row>
       <v-col>
@@ -9,12 +9,12 @@
         <Reste v-bind:reste="reste" v-bind:devise="devise" v-bind:couleur="couleur"/>
       </v-col>
     </v-row>
-    <v-alert type="info" v-if="!isDepense" class=" mt-10 mb-10">Pas de dépenses ! Ajoutez en une ci-dessous</v-alert>
+    <Nodepense v-if="!isDepense" v-on:submit="ajouterDepense" class=" mt-10 mb-10"/>
     <Depense v-for="depense in depenses" :key="depense.id" v-bind:numDepense="depense.id" v-bind:montantDepense="depense.montant" v-bind:texteDepense="depense.texte" v-bind:date="depense.date" v-bind:devise="devise" v-bind:icone="depense.type" v-on:suppr="supprimerDepense(depense.id)" />
     <v-container class="pl-0 pr-0">
-      <AjouterDepense v-on:submit="ajouterDepense" />
+      <AjouterDepense v-if="isDepense" v-on:submit="ajouterDepense" :depressedState='false'/>
     </v-container>
-  </v-content>
+  </v-main>
 </template>
 
 <script>
@@ -26,11 +26,13 @@ import Depense from "../components/Depense";
 import Reste from "../components/Reste";
 
 import AjouterDepense from "../components/AjouterDepense";
+import Popup from "../components/Popup";
+import Nodepense from "../components/Nodepense";
 
 export default {
   transition: 'fade',
   components: {
-    Test, Budget, Depense, Reste, AjouterDepense
+    Test, Budget, Depense, Reste, AjouterDepense, Popup, Nodepense
   },
   data() {
     return {
@@ -43,6 +45,7 @@ export default {
       isDepense: true,
 
       depenses: [
+        
       ],
       reste: ''
     }
@@ -69,8 +72,8 @@ export default {
       }
       this.calculCouleur();
     },
-    ajouterDepense(newMontantC, newTexteC, newType){
-      this.depenses.push({id: '', montant: newMontantC, texte: newTexteC, date: new Date().toLocaleDateString(), type: newType});
+    ajouterDepense(data){
+      this.depenses.push({id: '', montant: data.montant, texte: data.texte, date: new Date().toLocaleDateString(), type: data.type});
 
       console.log('Élément ajouté !');
       this.calculDepense();
@@ -118,20 +121,10 @@ export default {
 </script>
 
 <style>
-.v-content{
+.v-main{
   margin-right: auto;
   margin-left: auto;
 
   width: 900px;
-}
-
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
 }
 </style>
