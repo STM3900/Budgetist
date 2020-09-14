@@ -1,0 +1,19 @@
+{
+  "name": "budgetest",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "material-design-icons-iconfont": "^6.1.0",
+    "nuxt": "^2.14.0"
+  },
+  "devDependencies": {
+    "@mdi/font": "^5.5.55",
+    "@nuxtjs/vuetify": "^1.11.2"
+  }
+}
