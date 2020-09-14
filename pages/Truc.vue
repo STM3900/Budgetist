@@ -2,7 +2,7 @@
   <div id="app-5">
     <p>{{ message }}</p>
     <button v-on:click="reverseMessage">Reverse Message</button> <br>
-    <v-btn class="info">COUCOU JTM</v-btn>
+    <v-btn class="info">Message super cool</v-btn>
   </div>
 </template>
 

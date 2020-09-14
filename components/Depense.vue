@@ -7,7 +7,7 @@
                         <v-icon large>{{icone}}</v-icon>
                     </v-col>
                     <v-col class="mt-0 mb-0 pa-0">
-                        <v-card-title class="pt-0 pb-0 mt-0 text-capitalize">{{texteDepense}}</v-card-title>
+                        <v-card-title class="pt-0 pb-0 mt-0 mb-3 text-capitalize">{{texteDepense}}</v-card-title>
                         <v-card-subtitle class="pb-0 mb-0">{{date}}</v-card-subtitle>                    
                     </v-col>                    
                 </v-row>
@@ -16,7 +16,7 @@
                 <v-card-text class="headline pt-0 pb-0 p">{{montantDepense}}{{devise}}</v-card-text>
             </v-col>
         </v-row>
-        <v-card-actions class="mt-0"><v-btn v-on:click="$emit('suppr')" dark small class="error"><v-icon left>clear</v-icon>Supprimer dépense</v-btn></v-card-actions>
+        <v-card-actions class="mt-0"><v-btn v-on:click="$emit('suppr')" depressed small class="error"><v-icon left>clear</v-icon>Supprimer dépense</v-btn></v-card-actions>
     </v-card>
 </template>
 

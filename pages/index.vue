@@ -58,10 +58,7 @@ export default {
       this.checkDepense();
       this.reste = this.budget;
 
-      if(!this.depenses){
-        console.log('Pas de dépenses, pas de calcul');
-      }
-      else{
+      if(this.depenses){
         for(let i = 0; i < this.depenses.length; i++){
         console.log(this.depenses[i].montant);
 
