@@ -61,6 +61,7 @@ export default {
           this.$emit('submit', data);
           console.log(this.newType);
           this.$refs.form.reset();
+          this.dialog = false;
         }
     }
   },
