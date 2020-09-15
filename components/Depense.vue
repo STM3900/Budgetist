@@ -22,7 +22,7 @@
 
 <script>
 export default {
-    transition: 'fade',
+    transition: 'slide',
     name: "depense",
     props: [
         'numDepense',

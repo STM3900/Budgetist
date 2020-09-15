@@ -7,6 +7,13 @@
 </template>
 
 <style>
+.v-main{
+  margin-right: auto;
+  margin-left: auto;
+
+  width: 900px;
+}
+
 html {
   font-family:
     'Source Sans Pro',
@@ -82,5 +89,5 @@ html {
 .fade-enter,
 .fade-leave-active {
   opacity: 0;
-}
+} 
 </style>
