@@ -40,19 +40,4 @@ export default {
         margin-top: 5px;
         margin-bottom: 15px;
     }
-
-    button{
-        margin-top: 5px;
-        color: rgb(226, 44, 44);
-        border: solid 2px rgb(226, 44, 44);
-        padding: 8px;
-        border-radius: 5px;
-
-        transition: 0.3s
-    }
-
-    button:hover{
-        color: white;
-        background: rgb(226, 44, 44);
-    }
 </style>
