@@ -13,7 +13,7 @@
     <Depense v-for="depense in depenses" :key="depense.id" v-bind:numDepense="depense.id" v-bind:montantDepense="depense.montant" v-bind:texteDepense="depense.texte" v-bind:date="depense.date" v-bind:devise="devise" v-bind:icone="depense.type" v-on:suppr="supprimerDepense(depense.id)" />
     <v-container class="pl-0 pr-0">
       <v-row>
-        <nuxt-link to="/" class="ml-3"><v-btn outlined>Revenir au menu</v-btn></nuxt-link>
+        <nuxt-link to="/" class="ml-3"><v-btn outlined color="grey darken-1"><v-icon left>arrow_back</v-icon>Revenir au menu</v-btn></nuxt-link>
         <v-spacer></v-spacer>
         <AjouterDepense v-if="isDepense" v-on:submit="ajouterDepense" :depressedState='false'/>
       </v-row>
