@@ -129,17 +129,3 @@ export default {
 
 </script>
 
-<style>
-/*
-.list-enter, .list-leave-to {
-  opacity: 0;
-}
-.list-enter-active, .list-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.list-move {
-  transition: transform 0.5s ease-out;
-}
-*/
-</style>

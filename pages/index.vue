@@ -2,36 +2,21 @@
   <v-main>
     <v-img :src="require('@/assets/budget.jpg')"></v-img>
     <h1 class="display-2 text-center mt-5  blue--text text--darken-4">{{titre}}</h1>
-    <v-form ref="form" v-if="firstTime" v-on:submit.prevent="submit" v-model="valid">
-      <v-container>
-        <v-col align="center">
-          <v-col sm="8">
-            <v-text-field type="text" label="Entrez votre nom" v-model="name" :rules="isEmpty" append-icon="account_circle"></v-text-field>
-          </v-col>
-          <v-col sm="8">
-            <v-text-field type="number" label="Entrez votre budget" v-model="budget" :rules="isNum" append-icon="euro"></v-text-field>
-          </v-col>
-          <v-col sm="8" align="start">
-            <v-btn :disabled="!valid" type="submit" class="success" ><v-icon left>call_made</v-icon>C'est parti !</v-btn>
-          </v-col>
-        </v-col>
-      </v-container>
-    </v-form>
-    <v-container v-else>
-      <v-col align="center">
-        <v-col sm="5">
-          <nuxt-link to="budget"><v-btn color="info" block outlined><v-icon left>arrow_right_alt</v-icon>Aller au budget</v-btn></nuxt-link> 
-        </v-col>
-        <v-col sm="5">
-          <v-btn color="warning" outlined block v-on:click="reset"><v-icon left>delete</v-icon>Réinitialiser votre profil</v-btn>
-        </v-col>
-      </v-col>
-    </v-container>
+    <v-fade-transition leave-absolute>
+      <Creationprofil v-if="firstTime" />
+      <Buttons v-else v-on:reset="reset" />
+    </v-fade-transition>
   </v-main>
 </template>
 
 <script>
+import Creationprofil from "../components/Creationprofil";
+import Buttons from "../components/Buttons";
+
 export default {
+ components: {
+    Creationprofil,Buttons
+  },
   transition: 'fade',
   data: function(){
     return {
@@ -53,15 +38,6 @@ export default {
     };
   },
   methods: {
-      submit() {
-        if(this.$refs.form.validate()){
-          localStorage.setItem('nom', this.name);
-          localStorage.setItem('budget', this.budget);
-
-          console.log(this.newType);
-          this.$router.push('budget');
-        }
-      },
       reset(){
         localStorage.clear();
 
