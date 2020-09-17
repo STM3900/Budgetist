@@ -1,11 +1,11 @@
 <template>
      <v-container>
       <v-col align="center">
-        <v-col sm="5">
+        <v-col sm="6">
           <nuxt-link to="budget"><v-btn color="info" block outlined><v-icon left>arrow_right_alt</v-icon>Aller au budget</v-btn></nuxt-link> 
         </v-col>
-        <v-col sm="5">
-            <v-dialog v-model="dialog" max-width="600px">
+        <v-col sm="6">
+            <v-dialog v-model="dialog" max-width="550px">
                 <template v-slot:activator="{ on, attrs }">
                 <v-btn color="warning" outlined block v-bind="attrs" v-on="on"><v-icon left>delete</v-icon>Réinitialiser votre profil</v-btn>
                 </template>
