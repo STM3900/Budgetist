@@ -39,6 +39,8 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
+
+  text-decoration: none;
 }
 
 .button--green {
