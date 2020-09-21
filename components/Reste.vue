@@ -1,5 +1,5 @@
 <template>
-    <v-container>
+    <v-container v-resize="onResize" :class="`${padding}`">
         <v-card :class="`${couleur} white--text mx-auto`">
             <v-card-title>Montant restant :</v-card-title>
             <v-card-subtitle class="display-1 white--text">{{reste}}{{devise}}</v-card-subtitle>
@@ -10,6 +10,31 @@
 <script>
 export default {
     name: 'Reste',
-    props: ['reste','devise','couleur']
+    props: ['reste','devise','couleur'],
+    data: () => ({
+            windowSize: {
+                x: 0,
+                y: 0,
+            },
+
+            padding: 'pl-0'
+        }),
+    mounted () {
+        this.onResize()
+    },
+    methods: {
+        onResize () {
+            this.windowSize = { x: window.innerWidth, y: window.innerHeight };
+            this.setPadding();
+        },
+        setPadding () {
+            if(this.windowSize.x < 600){
+                this.padding = '';
+            }
+            else{
+                this.padding = 'pr-0';
+            }
+        }
+    },
 }
 </script>

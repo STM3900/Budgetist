@@ -1,5 +1,5 @@
 <template>
-    <v-card class="mx-auto">
+    <v-card>
         <v-row justify="space-between" align="center" class="mb-0">
             <v-col sm="8" class="mt-0 mb-0"> 
                 <v-row justify="start" align="center" class="mb-0">
