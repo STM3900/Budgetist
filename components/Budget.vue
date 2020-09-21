@@ -1,5 +1,5 @@
 <template>
-    <v-container class="pl-0">
+    <v-container>
         <v-card class="mx-auto blue white--text">
             <v-card-title>Mon budget :</v-card-title>
             <v-card-subtitle class="display-1 white--text">{{budget}}{{devise}}</v-card-subtitle>

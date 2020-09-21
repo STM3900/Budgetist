@@ -1,11 +1,11 @@
 <template>
   <v-main>
     <Test v-bind:titre="letitre" v-bind:nom="nom"/>
-    <v-row>
-      <v-col>
+    <v-row justify="space-between">
+      <v-col cols="12" sm="6">
         <Budget v-bind:budget="budget" v-bind:devise="devise"/>
       </v-col>
-      <v-col>
+      <v-col cols="12" sm="6">
         <Reste v-bind:reste="reste" v-bind:devise="devise" v-bind:couleur="couleur"/>
       </v-col>
     </v-row>
