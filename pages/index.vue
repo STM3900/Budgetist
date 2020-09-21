@@ -1,7 +1,7 @@
 <template>
   <v-main>
     <v-img :src="require('@/assets/budget.jpg')"></v-img>
-    <h1 class="display-2 text-center mt-5  blue--text text--darken-4">{{titre}}</h1>
+    <h1 class="text-xs-h4 text-md-h3 text-center mt-5  blue--text text--darken-4">{{titre}}</h1>
     <v-fade-transition leave-absolute>
       <Creationprofil v-if="firstTime" />
       <Buttons v-else v-on:reset="reset" />
