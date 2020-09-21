@@ -52,14 +52,12 @@ export default {
     methods: {
       submit() {
         if(this.$refs.form.validate()){
-          console.log(this.newMontantC, this.newTexteC);
           const data = {
             montant: this.newMontantC,
             texte: this.newTexteC,
             type: this.newType,
           }
           this.$emit('submit', data);
-          console.log(this.newType);
           this.$refs.form.reset();
           this.dialog = false;
         }

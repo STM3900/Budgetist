@@ -12,7 +12,7 @@
                     </v-col>                    
                 </v-row>
             </v-col>
-            <v-col sm="4" align="end" class="pt-0 pb-0 mt-0 mb-0">
+            <v-col   align="end" class="pt-0 pb-0 mt-0 mb-0">
                 <v-card-text class="headline pt-0 pb-0 p">{{montantDepense}}{{devise}}</v-card-text>
             </v-col>
         </v-row>

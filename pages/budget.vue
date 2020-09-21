@@ -72,11 +72,9 @@ export default {
 
       if(this.depenses){
         for(let i = 0; i < this.depenses.length; i++){
-        console.log(this.depenses[i].montant);
 
         this.reste = this.reste - this.depenses[i].montant;
         this.depenses[i].id = i+1;
-        console.log(this.depenses[i].id);
         }
       }
       this.calculCouleur();
@@ -84,14 +82,12 @@ export default {
     ajouterDepense(data){
       this.depenses.push({id: '', montant: data.montant, texte: data.texte, date: new Date().toLocaleDateString(), type: data.type});
 
-      console.log('Élément ajouté !');
       this.calculDepense();
       localStorage.setItem(STORAGE_KEY, JSON.stringify(this.depenses));
     },
     supprimerDepense(index){
       this.depenses.splice(index-1, 1);
 
-      console.log(`Élément n°${index} supprimé !`);
       this.calculDepense();
       localStorage.setItem(STORAGE_KEY, JSON.stringify(this.depenses));
     },
@@ -117,7 +113,6 @@ export default {
       else{
         this.isDepense = true;
       }
-      console.log("la dépense est ", this.isDepense);
     },
     onResize(){
       this.windowSize = { x: window.innerWidth, y: window.innerHeight };
@@ -141,7 +136,6 @@ export default {
         this.budget =  localStorage.getItem("budget");
 
         this.depenses = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-        console.log(this.depenses);
         this.calculDepense();
       }
       this.onResize();
