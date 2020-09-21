@@ -15,10 +15,13 @@
         <Depense class="list-complete-item" v-for="depense in depenses" :key="depense.id" v-bind:numDepense="depense.id" v-bind:montantDepense="depense.montant" v-bind:texteDepense="depense.texte" v-bind:date="depense.date" v-bind:devise="devise" v-bind:icone="depense.type" v-on:suppr="supprimerDepense(depense.id)" />
       <!-- </transition-group> -->
       <v-container class="pl-0 pr-0">
-        <v-row>
-          <nuxt-link to="/" class="ml-3"><v-btn outlined color="grey darken-1"><v-icon left>arrow_back</v-icon>Revenir au menu</v-btn></nuxt-link>
-          <v-spacer></v-spacer>
-          <AjouterDepense v-if="isDepense" v-on:submit="ajouterDepense" :depressedState='false'/>
+        <v-row justify="space-between" align="start">
+          <v-col cols="12" sm="4">
+            <v-btn block outlined color="grey darken-1" v-on:click="$router.push('/');"><v-icon left>arrow_back</v-icon>Revenir au menu</v-btn>
+          </v-col>
+          <v-col cols="12" sm="4">
+            <AjouterDepense v-if="isDepense" v-on:submit="ajouterDepense" :depressedState='false'/>
+          </v-col>
         </v-row>
       </v-container>
     </div>

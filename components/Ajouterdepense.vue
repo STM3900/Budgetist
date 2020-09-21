@@ -1,7 +1,7 @@
 <template>
   <v-dialog max-width="700px" v-model="dialog">
     <template v-slot:activator="{on, attrs}">
-      <v-btn color="info" class="mr-3" :depressed='depressedState' v-bind="attrs" v-on="on"><v-icon left>add</v-icon>Ajouter une dépense</v-btn>
+      <v-btn color="info" class="mr-3" :depressed='depressedState' block v-bind="attrs" v-on="on"><v-icon left>add</v-icon>Ajouter une dépense</v-btn>
     </template>
     <v-card class="mx-auto">
       <v-form ref="form" v-on:submit.prevent="submit" v-model="valid" class="pa-10">
