@@ -1,25 +1,27 @@
 <template>
   <v-main>
-    <Test v-bind:titre="letitre" v-bind:nom="nom"/>
-    <v-row justify="space-between">
-      <v-col cols="12" sm="6">
-        <Budget v-bind:budget="budget" v-bind:devise="devise"/>
-      </v-col>
-      <v-col cols="12" sm="6">
-        <Reste v-bind:reste="reste" v-bind:devise="devise" v-bind:couleur="couleur"/>
-      </v-col>
-    </v-row>
-    <Nodepense v-if="!isDepense" v-on:submit="ajouterDepense" class=" mt-10 mb-10"/>
-    <!-- <transition-group name="list-complete"> -->
-      <Depense class="list-complete-item" v-for="depense in depenses" :key="depense.id" v-bind:numDepense="depense.id" v-bind:montantDepense="depense.montant" v-bind:texteDepense="depense.texte" v-bind:date="depense.date" v-bind:devise="devise" v-bind:icone="depense.type" v-on:suppr="supprimerDepense(depense.id)" />
-    <!-- </transition-group> -->
-    <v-container class="pl-0 pr-0">
-      <v-row>
-        <nuxt-link to="/" class="ml-3"><v-btn outlined color="grey darken-1"><v-icon left>arrow_back</v-icon>Revenir au menu</v-btn></nuxt-link>
-        <v-spacer></v-spacer>
-        <AjouterDepense v-if="isDepense" v-on:submit="ajouterDepense" :depressedState='false'/>
-      </v-row>
-    </v-container>
+    <div v-resize="onResize" :class="`${margin}`">
+      <Test v-bind:titre="letitre" v-bind:nom="nom"/>
+        <v-row justify="space-between">
+          <v-col cols="12" sm="6">
+            <Budget v-bind:budget="budget" v-bind:devise="devise"/>
+          </v-col>
+          <v-col cols="12" sm="6">
+            <Reste v-bind:reste="reste" v-bind:devise="devise" v-bind:couleur="couleur"/>
+          </v-col>
+        </v-row>
+      <Nodepense v-if="!isDepense" v-on:submit="ajouterDepense" class=" mt-10 mb-10"/>
+      <!-- <transition-group name="list-complete"> -->
+        <Depense class="list-complete-item" v-for="depense in depenses" :key="depense.id" v-bind:numDepense="depense.id" v-bind:montantDepense="depense.montant" v-bind:texteDepense="depense.texte" v-bind:date="depense.date" v-bind:devise="devise" v-bind:icone="depense.type" v-on:suppr="supprimerDepense(depense.id)" />
+      <!-- </transition-group> -->
+      <v-container class="pl-0 pr-0">
+        <v-row>
+          <nuxt-link to="/" class="ml-3"><v-btn outlined color="grey darken-1"><v-icon left>arrow_back</v-icon>Revenir au menu</v-btn></nuxt-link>
+          <v-spacer></v-spacer>
+          <AjouterDepense v-if="isDepense" v-on:submit="ajouterDepense" :depressedState='false'/>
+        </v-row>
+      </v-container>
+    </div>
   </v-main>
 </template>
 
@@ -53,7 +55,8 @@ export default {
       depenses: [
         
       ],
-      reste: ''
+      reste: '',
+      margin: ''
     }
   },
   methods: {
@@ -112,6 +115,18 @@ export default {
         this.isDepense = true;
       }
       console.log("la dépense est ", this.isDepense);
+    },
+    onResize(){
+      this.windowSize = { x: window.innerWidth, y: window.innerHeight };
+      this.setPadding();
+    },
+    setPadding(){
+      if(this.windowSize.x < 960){
+        this.margin = 'ml-5 mr-5';
+      }
+      else{
+        this.margin = '';
+      }
     }
   },
   mounted() {
@@ -126,6 +141,7 @@ export default {
         console.log(this.depenses);
         this.calculDepense();
       }
+      this.onResize();
   },
 };
 

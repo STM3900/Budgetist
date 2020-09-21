@@ -17,7 +17,7 @@ export default {
                 y: 0,
             },
 
-            padding: 'pl-0'
+            padding: ''
         }),
     mounted () {
         this.onResize()
@@ -29,7 +29,7 @@ export default {
         },
         setPadding () {
             if(this.windowSize.x < 600){
-                this.padding = '';
+                this.padding = 'pr-0 pl-0';
             }
             else{
                 this.padding = 'pr-0';
