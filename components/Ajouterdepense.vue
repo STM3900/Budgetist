@@ -15,9 +15,14 @@
           <v-radio label="Imprévu" value="report_problem"></v-radio>
         </v-radio-group>
         <v-card-actions>
-          <v-btn :disabled="!valid" type="submit" class="success ml-n2"><v-icon left>add</v-icon>Ajouter dépense</v-btn>
-          <v-spacer></v-spacer>
-          <v-btn color="error" class="mr-n2" text v-on:click="dialog = false"><v-icon left>clear</v-icon>Annuler</v-btn>
+          <v-row justify="space-between">
+            <v-col md="3" sm="12">
+              <v-btn :disabled="!valid" type="submit" class="success" block><v-icon left>add</v-icon>Ajouter dépense</v-btn>
+            </v-col>
+            <v-col md="3" sm="12">
+              <v-btn color="error" outlined v-on:click="dialog = false" block><v-icon left>clear</v-icon>Annuler</v-btn>
+            </v-col>
+          </v-row>
         </v-card-actions>
       </v-form>
     </v-card>
